@@ -1,6 +1,6 @@
 package com.restaurant.Entity;
 
-import com.restaurant.Enum.OrderStatus;
+import com.restaurant.Enum.OrderStatusEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -33,5 +33,5 @@ public class OrderEntity {
     private List<OrderItemEntity> orderItems = new ArrayList<>();
 
     @Enumerated(EnumType.STRING)
-    private OrderStatus status;
+    private OrderStatusEnum status;
 }
