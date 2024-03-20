@@ -1,7 +1,7 @@
 package com.restaurant.Security;
 
 import com.restaurant.Entity.UserEntity;
-import com.restaurant.Repository.UserEntityRepository;
+import com.restaurant.Repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,7 +18,7 @@ import java.util.Optional;
 @Configuration
 public class UserDetailsServiceLoop { //
 
-    private final UserEntityRepository userEntityRepository;
+    private final UserRepository userEntityRepository;
 
     @Bean
     public UserDetailsService userDetailsService() {
