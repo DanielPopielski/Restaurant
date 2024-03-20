@@ -29,7 +29,7 @@ public class DishService {
     }
 
     public boolean addDish(DishDto dishDto) {
-        if(dishRepository.findById(dishDto.dishId()).isEmpty()) {
+        if(dishRepository.findById(dishDto.getDishId()).isEmpty()) {
             dishRepository.save(modelMapper.map(dishDto, DishEntity.class));
             return true;
         }

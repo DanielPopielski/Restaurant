@@ -33,6 +33,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers("/api/v1/auth/**").permitAll()
                         .requestMatchers(("/xd")).hasRole("ADMIN")
+                        .requestMatchers(("/dishes/**")).hasRole("ADMIN")
                         .anyRequest().authenticated())
                 .logout()
                 .logoutSuccessUrl("/lol")

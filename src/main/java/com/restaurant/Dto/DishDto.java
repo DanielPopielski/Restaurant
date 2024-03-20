@@ -1,10 +1,16 @@
 package com.restaurant.Dto;
 
+import jakarta.persistence.Column;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import java.io.Serializable;
+@Getter
+@Setter
+@NoArgsConstructor
+public class DishDto {
 
-/**
- * A DTO for the {@link com.restaurant.Entity.DishEntity} entity
- */
-public record DishDto(long dishId, String nameOfTheDish, String priceOfTheDish) implements Serializable {
+    private long dishId;
+    private String nameOfTheDish;
+    private String priceOfTheDish;
 }

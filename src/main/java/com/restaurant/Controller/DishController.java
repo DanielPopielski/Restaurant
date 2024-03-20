@@ -23,12 +23,12 @@ public class DishController {
     public ResponseEntity getSingleDish(@PathVariable long Id) {
         return dishService.getSingleDish(Id)
                 .map(dishDto -> new ResponseEntity(dishDto, HttpStatus.OK))
-                .orElseGet(() -> new ResponseEntity("There is no Dish with the giben id" + Id, HttpStatus.BAD_REQUEST));
+                .orElseGet(() -> new ResponseEntity("There is no Dish with the given id " + Id, HttpStatus.BAD_REQUEST));
     }
 
     @PostMapping(value = "save")
     public boolean addDish(@RequestBody DishDto dishDto) {
-        if (dishService.getSingleDish(dishDto.dishId()).isEmpty()) {
+        if (dishService.getSingleDish(dishDto.getDishId()).isEmpty()) {
             dishService.addDish(dishDto);
             return true;
         }
@@ -39,10 +39,10 @@ public class DishController {
     public ResponseEntity editDish(@RequestBody DishDto updatedDishDto) {
         return dishService.updateDish(updatedDishDto)
                 .map(dish -> new ResponseEntity(dish, HttpStatus.OK))
-                .orElseGet(() -> new ResponseEntity("There is no dish with the given id" + updatedDishDto.dishId(), HttpStatus.NOT_FOUND));
+                .orElseGet(() -> new ResponseEntity("There is no dish with the given id " + updatedDishDto.getDishId(), HttpStatus.NOT_FOUND));
     }
 
-    @DeleteMapping("/{Id}")
+    @DeleteMapping("/delete/{Id}")
     public ResponseEntity deleteAuthor(@PathVariable long Id) {
         if (dishService.getSingleDish(Id).isPresent()) {
             dishService.deleteDish(Id);
