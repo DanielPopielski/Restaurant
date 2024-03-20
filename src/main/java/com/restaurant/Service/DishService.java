@@ -41,8 +41,10 @@ public class DishService {
         return Optional.of(dishDto);
     }
 
-    public boolean deleteAuthor(long Id){
-        return dishRepository.findById(Id).isPresent();
-
+    public boolean deleteDish(long dishId){
+        return dishRepository.findById(dishId).map(dish -> {
+            dishRepository.delete(dish);
+            return true;
+        }).orElse(false);
     }
 }
