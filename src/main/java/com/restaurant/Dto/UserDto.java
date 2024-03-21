@@ -1,18 +1,15 @@
 package com.restaurant.Dto;
 
-import com.restaurant.Entity.TableEntity;
-import com.restaurant.Entity.UserEntity;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.io.Serializable;
-import java.util.List;
+@Getter
+@Setter
+@NoArgsConstructor
+public class UserDto {
 
-/**
- * A DTO for the {@link UserEntity} entity
- */
-public record UserDto(String username, String password, String role,
-                      List<TableEntity> tables) implements Serializable {
+    private long userId;
+    private String username;
+    private String password;
 }
