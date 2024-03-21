@@ -12,4 +12,5 @@ public class UserDto {
     private long userId;
     private String username;
     private String password;
+    private String role;
 }

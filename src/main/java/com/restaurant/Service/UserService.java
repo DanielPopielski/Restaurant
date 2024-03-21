@@ -34,6 +34,7 @@ public class UserService {
 
     public boolean addUser(UserDto userDto) {
         if(userRepository.findById(userDto.getUserId()).isEmpty()) {
+            userDto.setRole("ROLE_USER");
             userRepository.save(modelMapper.map(userDto, UserEntity.class));
             return true;
         }
