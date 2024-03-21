@@ -18,12 +18,12 @@ import java.util.Optional;
 @Configuration
 public class UserDetailsServiceLoop { //
 
-    private final UserRepository userEntityRepository;
+    private final UserRepository userRepository;
 
     @Bean
     public UserDetailsService userDetailsService() {
         return username -> {
-            Optional<UserEntity> userOptional = userEntityRepository.findByUsername(username);
+            Optional<UserEntity> userOptional = userRepository.findByUsername(username);
             if (userOptional.isPresent()) {
                 UserEntity user = userOptional.get();
                 String roleFromDatabase = user.getRole();
