@@ -43,7 +43,7 @@ public class DishController {
     }
 
     @DeleteMapping("/delete/{Id}")
-    public ResponseEntity deleteAuthor(@PathVariable long Id) {
+    public ResponseEntity deleteDish(@PathVariable long Id) {
         if (dishService.getSingleDish(Id).isPresent()) {
             dishService.deleteDish(Id);
             return new ResponseEntity("Dish with id " + Id + " has been deleted", HttpStatus.OK);
