@@ -8,4 +8,5 @@ import java.util.Optional;
 public interface TableRepository extends JpaRepository<TableEntity, Long> {
 
     Optional<TableEntity> findById(long Id);
+    Optional<TableEntity> findByUser(String user);
 }
