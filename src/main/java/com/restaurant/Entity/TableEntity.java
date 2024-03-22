@@ -21,6 +21,9 @@ public class TableEntity {
     @Column(name = "table_id")
     private long tableId;
 
+    @Column(name = "number_of_chairs")
+    private long numberOfChairs;
+
     @ManyToMany(mappedBy = "tables")
     private List<UserEntity> users;
 }
